@@ -10,8 +10,10 @@ else
 	$stmt = $conn->prepare("Insert into newsletter(email2) values(?)");
 	$stmt->bind_param("s", $email2);
 	$stmt->execute();
-	echo "Email Registration Succesful!!";
+	echo '<script>alert("Email Registration Succesful!!"); window.location="mail.php";</script>';
 	$stmt->close();
 	$conn->close();
+	// header("Location:mail.html");
+	// exit();
 }
 ?>

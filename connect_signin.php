@@ -1,7 +1,8 @@
 <?php
 $email = $_POST['Email'];
 $password = $_POST['Password'];
-//DB connection
+$hash = password_hash($password, PASSWORD_DEFAULT);
+//DB connection 
 $conn = new mysqli('localhost','root','','webcheck');
 if($conn->connect_error)
 {
@@ -10,9 +11,9 @@ if($conn->connect_error)
 else
 {
 	$stmt = $conn->prepare("Insert into signin(email, password) values(?,?)");
-	$stmt->bind_param("ss", $email, $password);
+	$stmt->bind_param("ss", $email, $hash);
 	$stmt->execute();
-	echo "Registration Succesful!!";
+	echo '<script>alert("Sign In Succesful!!"); window.location="index2.php";</script>';
 	$stmt->close();
 	$conn->close();
 }
