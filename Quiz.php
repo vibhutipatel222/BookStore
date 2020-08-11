@@ -9,7 +9,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 <!DOCTYPE html>
 <html>
 <head>
-<title>Online Book Shop | Mail Us</title>
+<title>Online Book Shop | Quiz :: w3layouts</title>
 <!-- for-mobile-apps -->
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
@@ -30,6 +30,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <!-- for bootstrap working -->
 <script type="text/javascript" src="js/bootstrap-3.1.1.min.js"></script>
 <!-- //for bootstrap working -->
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
 <link href='//fonts.googleapis.com/css?family=Glegoo:400,700' rel='stylesheet' type='text/css'>
 <link href='//fonts.googleapis.com/css?family=Open+Sans:400,300,300italic,400italic,600,600italic,700,700italic,800,800italic' rel='stylesheet' type='text/css'>
 <!-- start-smooth-scrolling -->
@@ -150,28 +152,28 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 			</div>
 			<div class="cart box_1">
 				<a href="checkout.php">
-					<p style="margin-left: 3em; color: green;font-size: 1em">CART&nbsp;<img src="images/bag.png" alt="" /></p>
+					<p style="margin-left: 2em; color: green;font-size: 1em">CART&nbsp;<img src="images/bag.png" alt="" /></p>
 					<div class="total">₹
 					 <?php 
 					 	include 'carttotal.php';
 					  ?>
-					( 
+					[ 
 					<?php 
 					 	include 'cartno.php';
 					  ?>
-				items)</div>
+				items ]</div>
 					
 				</a><br>
 				<div class="clearfix"> </div>
 			</div>	<?php  
 				$user=$_SESSION['loginuser'];
 				if($user=='unknown'){
-					echo '<a style="position: absolute;margin-left: 17em;margin-top: 2em;padding:0.2em 0.7em;float: right;border:0.2em solid #ff9b05;color: black;" href="index.php"> LOG IN </a>';
+					echo '<a style="position: absolute;margin-left: 10em;margin-top: 2em;padding:0.2em 0.7em;float: right;border:0.2em solid #ff9b05;color: black;" href="index.php"> LOG IN </a>';
 				}else{
-					echo '<a style="position: absolute;margin-left: 17em;margin-top: 1em;padding:0.2em;float: right;border:0.2em solid #ff9b05;color: black;" href="logout.php">LOG OUT</a><br><a style="position: absolute;margin-left: 15em;margin-top: 2em;padding:0.2em;float: right;color: #ff9b05;font-size:1em"> '.$user.' </a>';
+					echo '<a style="position: absolute;margin-left: 10em;margin-top: 1em;padding:0.2em;float: right;border:0.2em solid #ff9b05;color: black;" href="logout.php">LOG OUT</a><br><a style="position: absolute;margin-left: 10em;margin-top: 2em;padding:0.2em;float: right;color: #ff9b05;font-size:0.9em"> '.$user.' </a>';
 				}
 
-				?>	
+				?>
 			<div class="clearfix"> </div>
 		</div>
 	</div>
@@ -192,7 +194,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 						<li class="active"><a href="index2.php">Home</a></li>	
 						<!-- Mega Menu -->
 						<li class="dropdown">
-							<a href="#" class="dropdown-toggle" data-toggle="dropdown">Products <b class="caret"></b></a>
+							<a href="#" class="dropdown-toggle act" data-toggle="dropdown">Products <b class="caret"></b></a>
 							<ul class="dropdown-menu multi-column columns-3">
 								<div class="row">
 									<div class="col-sm-3">
@@ -210,13 +212,14 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 											
 										</ul>
 									</div>
+								
 								</div>
 							</ul>
 						</li>
-						<li><a href="Quiz.php">QUIZ</a></li>
+						<li><a href="Quiz.php">Quiz</a></li>
 						<li><a href="about.php">About Us</a></li>
 						
-						<li><a href="mail.php" class="act">Mail Us</a></li>
+						<li><a href="mail.php">Mail Us</a></li>
 					</ul>
 				</div>
 			</nav>
@@ -224,57 +227,250 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 	</div>
 <!-- //header -->
 <!-- banner -->
-	<div class="banner10" id="home1">
-		<div class="container">
-			<h2>Mail Us</h2>
-		</div>
+<div class="banner10" id="home1">
+	<div class="container">
+		<h2>Quiz</h2>
 	</div>
+</div>
 <!-- //banner -->
 
 <!-- breadcrumbs -->
 	<div class="breadcrumb_dress">
 		<div class="container">
 			<ul>
-				<li><a href="index.php"><span class="glyphicon glyphicon-home" aria-hidden="true"></span> Home</a> <i>/</i></li>
-				<li>Mail Us</li>
+				<li><a href="index2.php"><span class="glyphicon glyphicon-home" aria-hidden="true"></span> Home</a> <i>/</i></li>
+				<li>Quiz</li>
 			</ul>
 		</div>
 	</div>
 <!-- //breadcrumbs -->
 
-<!-- mail -->
-	<div class="mail">
-		<div class="container">
-			<h3>Mail Us</h3>
-			<div class="agile_mail_grids">
-				<div class="col-md-5 contact-left">
-					<h4>Address</h4>
-					<p>CHARUSAT, Changa
-						<span>Anand City</span></p>
-					<ul>
-						<li>Free Phone :+91 9988776655</li>
-						<li>Telephone :+1 9988776655</li>
-						<li>Fax :+1 9988776655</li>
-						<li><a href="mailto:info@example.com">info@example.com</a></li>
-					</ul>
-				</div>
-				<div class="col-md-7 contact-left">
-					<h4>Contact Form</h4>
-					<form action="connect_mail.php" method="post"><!-- DB ADDED -->
-						<input type="text" name="Name" value="Name" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Name';}" required="">
-						<input type="email" name="Email" value="Email" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Email';}" required="">
-						<input type="text" name="Telephone" value="Telephone" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Telephone';}" required="">
-						<textarea name="message" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Message...';}" required="">Message...</textarea>
-						<input type="submit" value="Submit" >
-					</form>
-				</div>
-				<div class="clearfix"> </div>
-			</div>
 
-			
-		</div>
+
+   <div id="dvv">
+    <script type="text/javascript" async="" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-MML-AM_CHTML"></script> <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {inlineMath: [['$','$'], ['\(','\)']]}
+    });
+    </script>
+    <div id="quiz"> </div>
+    <button id="submit">Submit Quiz</button>
+    <div id="results" style="text-align: center; font-size: 6em;color: white;margin:0.2em 0.5em 0.5em 0;font-weight: 600;"> </div>
+    <script type="text/javascript"> 
+    (function() {
+      function buildQuiz() {
+        // we'll need a place to store the HTML output
+        const output = [];
+        // for each question...
+        myQuestions.forEach((currentQuestion, questionNumber) => {
+          // we'll want to store the list of answer choices
+          const answers = [];
+          // and for each available answer...
+          for (letter in currentQuestion.answers) {
+            // ...add an HTML radio button
+            answers.push(
+              `<label>
+                <input type="radio" name="question${questionNumber}" value="${letter}">
+                ${letter} :
+                ${currentQuestion.answers[letter]}
+              </label>`
+            );
+          }
+          // add this question and its answers to the output
+          output.push(
+            `<div class="question"> ${currentQuestion.question} </div>
+            <div class="answers"> ${answers.join("")} </div>`
+          );
+        });
+        // finally combine our output list into one string of HTML and put it on the page
+        quizContainer.innerHTML = output.join("");
+      }
+      function showResults() {
+        // gather answer containers from our quiz
+        const answerContainers = quizContainer.querySelectorAll(".answers");
+        // keep track of user's answers
+        let numCorrect = 0;
+        // for each question...
+        myQuestions.forEach((currentQuestion, questionNumber) => {
+          // find selected answer
+          const answerContainer = answerContainers[questionNumber];
+          const selector = `input[name=question${questionNumber}]:checked`;
+          const userAnswer = (answerContainer.querySelector(selector) || {}).value;
+          // if answer is correct
+          if (userAnswer === currentQuestion.correctAnswer) {
+            // add to the number of correct answers
+            numCorrect++;
+            // color the answers green
+            answerContainers[questionNumber].style.color = "lightgreen";
+          } else {
+            // if answer is wrong or blank
+            // color the answers red
+            answerContainers[questionNumber].style.color = "red";
+          }
+        });
+        // show number of correct answers out of total
+        resultsContainer.innerHTML = `${numCorrect} out of ${myQuestions.length}`;
+        resultsContainer.style.backgroundColor="#8EBF29";
+      }
+      const quizContainer = document.getElementById("quiz");
+      const resultsContainer = document.getElementById("results");
+      const submitButton = document.getElementById("submit");
+      const myQuestions = [
+    <!-- QUESTIONS & OPTIONS -->
+    {
+          question: "<hr><h6 style=\"color:blue;font-size:1.5em\"><strong>QUESTION #1 &nbsp;&nbsp;&nbsp;[NURSE]&nbsp;&nbsp;[EASY]</strong></h6>What is the term for a device used to take the place of a missing body part?",
+          answers: {
+            A: "Pronation",
+            B: "Abduction",
+            C: "Externalrotation",
+            D: "Prosthesis"
+          },
+          correctAnswer: "D"
+        },
+    {
+          question: "<hr><h6 style=\"color:blue;font-size:1.5em\"><strong>QUESTION #2 &nbsp;&nbsp;&nbsp;[Panchayat]&nbsp;&nbsp;[MEDIUM]</strong></h6>How many years of work experience in High Court is required to become Justice of the Supreme Court ? ",
+          answers: {
+            A: "8 years",
+            B: "10 years",
+            C: "12 years",
+            D: "15 years"
+          },
+          correctAnswer: "B"
+        },
+    <!-- ONE UNIT QUESTION -->
+    {
+          question: "<hr><h6 style=\"color:blue;font-size:1.5em\"><strong>QUESTION #3 &nbsp;&nbsp;&nbsp;[SSC]&nbsp;&nbsp;[MEDIUM]</strong></h6>A can complete a piece of work in 20 days and B can complete 20% of the work in 6 days. If they work together in how many days can they finish 50% of the work, if they work together?",
+          answers: {
+            A: "6",
+            B: "8",
+            C: "9",
+            D: "12"
+          },
+          correctAnswer: "A"
+        },
+    <!-- ONE UNIT QUESTION ENDS -->
+    {
+          question: "<hr><h6 style=\"color:blue;font-size:1.5em\"><strong>QUESTION #4 &nbsp;&nbsp;&nbsp;[TALATI]&nbsp;&nbsp;[EASY]</strong></h6>Who is known as the india napoleon?",
+          answers: {
+            A: "Samudragupt",
+            B: "Ashoka ",
+            C: "Vikramaditya",
+            D: "Chandragupt maurya"
+          },
+          correctAnswer: "A"
+        },
+    {
+          question: "<hr><h6 style=\"color:blue;font-size:1.5em\"><strong>QUESTION #5 &nbsp;&nbsp;&nbsp;[RAILWAY]&nbsp;&nbsp;[MEDIUM]</strong></h6>A train crowed a 110 m long platform in 13.5 teconds and a 205 m long platform in 18.25 wood:. What was the tined of the train?",
+          answers: {
+            A: "66 km/h",
+            B: "69 km/h",
+            C: "72 km/h",
+            D: "75 km/h"
+          },
+          correctAnswer: "C"
+        },
+    {
+          question: "<hr><h6 style=\"color:blue;font-size:1.5em\"><strong>QUESTION #6 &nbsp;&nbsp;&nbsp;[POST]&nbsp;&nbsp;[EASY]</strong></h6>Which of the following newspapers was Jawaharlal Nehru associated?",
+          answers: {
+            A: "The Leader",
+            B: "Amrita Bazar Patrika",
+            C: "The Tribune",
+            D: "National Herald"
+          },
+          correctAnswer: "D"
+        },
+    {
+          question: "<hr><h6 style=\"color:blue;font-size:1.5em\"><strong>QUESTION #7 &nbsp;&nbsp;&nbsp;[SSC]&nbsp;&nbsp;[MEDIUM]</strong></h6>A certain sum was invested on simple interest. The amount to which it had grown in five years was 5/4 times the amount to which it had grown in three years. The percentage rate of interest was:",
+          answers: {
+            A: "15",
+            B: "25",
+            C: "20",
+            D: "10"
+          },
+          correctAnswer: "C"
+        },
+    {
+          question: "<hr><h6 style=\"color:blue;font-size:1.5em\"><strong>QUESTION #8 &nbsp;&nbsp;&nbsp;[High Court]&nbsp;&nbsp;[MEDIUM]</strong></h6>Who appoints the Chief Justice and other judges of the High Courts in India?",
+          answers: {
+            A: "President",
+            B: "Chief Minister",
+            C: "Prime Minister",
+            D: "Governor"
+          },
+          correctAnswer: "D"
+        },
+
+
+     {
+          question: "<hr><h6 style=\"color:blue;font-size:1.5em\"><strong>QUESTION #9 &nbsp;&nbsp;&nbsp;[GPSC]&nbsp;&nbsp;[EASY]</strong></h6>The smallest number of 6 digits which is exactly divisible by 10, 12 & 25 is:",
+          answers: {
+            A: "100100",
+            B: "100200",
+            C: "100300",
+            D: "120000"
+          },
+          correctAnswer: "B"
+        },
+    {
+          question: "<hr><h6 style=\"color:blue;font-size:1.5em\"><strong>QUESTION #10 &nbsp;&nbsp;&nbsp;[GSRTC]&nbsp;&nbsp;[EASY]</strong></h6>When did the motor vehicle act come into force?",
+          answers: {
+            A: "1 July 1989",
+            B: "1 July 1988",
+            C: "1 January 1988",
+            D: "1 March 1989"
+          },
+          correctAnswer: "A"
+        }
+    ];
+    <!-- QUESTIONS & OPTIONS END -->
+      // display quiz right away
+      buildQuiz();
+      // on submit, show results
+      submitButton.addEventListener("click", showResults);
+    })();
+	</script>
 	</div>
-<!-- //mail -->
+<!-- onload function is evoke when page is load --><!--countdown function is called when page is loaded -->
+
+<style>
+body{
+    font-size: 18px;
+    font-family: sans-serif;
+    color: #333;
+}
+#dvv{
+	margin-left: 50px;
+}
+.question{
+    font-weight: 400;
+}
+.answers {
+  margin-bottom: 50px;
+}
+.answers label{
+  display: block;
+}
+#submit{
+    font-family: sans-serif;
+    font-size: 20px;
+    background-color: #279;
+    color: #fff;
+    border: 0px;
+    border-radius: 3px;
+    padding: 5px;
+    cursor: pointer;
+    margin-bottom: 20px;
+}
+#submit:hover{
+    background-color: #38a;
+}
+</style>
+</body>
+</head>
+</html>
+
+
+<!-- //dresses -->
 <!-- newsletter -->
 	<div class="newsletter">
 		<div class="container">
@@ -283,7 +479,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				<p></p>
 			</div>
 			<div class="col-md-6 w3agile_newsletter_right">
-				<form action="connect_newsletter.php" method="post"><!-- DB ADDED -->
+				<form action="connect_newsletter.php" method="post">
 					<input type="email" name="Email" value="Email" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Email';}" required="">
 					<input type="submit" value="">
 				</form>

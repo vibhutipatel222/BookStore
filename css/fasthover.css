@@ -17,16 +17,17 @@
 	top: 0px;
 	left: 0px;
 	position: absolute;
-	-webkit-animation: showMe 3s linear infinite 0s forwards;
-	-moz-animation: showMe 3s linear infinite 0s forwards;
-	-o-animation: showMe 3s linear infinite 0s forwards;
-	-ms-animation: showMe 3s linear infinite 0s forwards;
-	animation: showMe 3s linear infinite 0s forwards;
+	-webkit-animation: showMe 3s linear  0s forwards;
+	-moz-animation: showMe 3s linear 0s forwards;
+	-o-animation: showMe 3s linear  0s forwards;
+	-ms-animation: showMe 3s linear 0s forwards;
+	animation: showMe 3s linear  0s forwards;
 	-webkit-animation-play-state: paused;
 	-moz-animation-play-state: paused;
 	-o-animation-play-state: paused;
 	-ms-animation-play-state: paused;
 	animation-play-state: paused;	
+	animation-iteration-count: 1;
 }
 .hs-wrapper img:nth-child(1){
 	z-index: 9;
@@ -87,13 +88,7 @@
 	animation-delay: 3.5s;
 	z-index: 2;
 }
-.agile_ecommerce_tab_left:hover .hs-wrapper img,.hs-wrapper:hover img{
-	-webkit-animation-play-state: running;
-	-moz-animation-play-state: running;
-	-o-animation-play-state: running;
-	-ms-animation-play-state: running;
-	animation-play-state: running;
-}
+
 .hs-overlay{
 	position: absolute;
 	width: 100%;
@@ -137,40 +132,6 @@
 	box-shadow: 0 0 0 5px rgba(255,255,255,0.3) inset;
 }
 
-@-webkit-keyframes showMe {
-    0% { visibility: visible; z-index: 100; }
-	12.5% { visibility: visible; z-index: 100; }
-	25% { visibility: hidden; z-index: 0; }
-    100% { visibility: hidden; z-index: 0; }
-}
-
-@-moz-keyframes showMe {
-    0% { visibility: visible; z-index: 100; }
-	12.5% { visibility: visible; z-index: 100; }
-	25% { visibility: hidden; z-index: 0; }
-    100% { visibility: hidden; z-index: 0; }
-}
-
-@-o-keyframes showMe {
-    0% { visibility: visible; z-index: 100; }
-	12.5% { visibility: visible; z-index: 100; }
-	25% { visibility: hidden; z-index: 0; }
-    100% { visibility: hidden; z-index: 0; }
-}
-
-@-ms-keyframes showMe {
-    0% { visibility: visible; z-index: 100; }
-	12.5% { visibility: visible; z-index: 100; }
-	25% { visibility: hidden; z-index: 0; }
-    100% { visibility: hidden; z-index: 0; }
-}
-
-@keyframes showMe {
-    0% { visibility: visible; z-index: 100; }
-	12.5% { visibility: visible; z-index: 100; }
-	25% { visibility: hidden; z-index: 0; }
-    100% { visibility: hidden; z-index: 0; }
-}
 @media (max-width: 1080px){
 	.hs-wrapper {
 		width: 158px;

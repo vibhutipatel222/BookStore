@@ -1,4 +1,6 @@
-<!--
+<?php
+session_start();
+?><!--
 Author: W3layouts
 Author URL: http://w3layouts.com
 License: Creative Commons Attribution 3.0 Unported
@@ -7,7 +9,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 <!DOCTYPE html>
 <html>
 <head>
-<title>Online Book Shop | Mail Us</title>
+<title>Online Book Shop | Other</title>
 <!-- for-mobile-apps -->
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
@@ -134,7 +136,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				<a href="#" data-toggle="modal" data-target="#myModal88"><img src="images/logo.jpg" alt="Smiley face" width="100" height="100"></a>
 			</div>
 			<div class="w3l_logo">
-				<h1><a href="index.html">Bharat Publications<span>For Competitors</span></a></h1>
+				<h1><a href="index2.php">Bharat Publications<span>For Competitors</span></a></h1>
 			</div>
 			<div class="search">
 				<input class="search_box" type="checkbox" id="search_box">
@@ -147,14 +149,29 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				</div>
 			</div>
 			<div class="cart box_1">
-				<a href="checkout.html">
-					<div class="total">
-					<span class="simpleCart_total"></span> (<span id="simpleCart_quantity" class="simpleCart_quantity"></span> items)</div>
-					<img src="images/bag.png" alt="" />
-				</a>
-				<p><a href="javascript:;" class="simpleCart_empty">Empty Cart</a></p>
+				<a href="checkout.php">
+					<p style="margin-left: 3em; color: green;font-size: 1em">CART&nbsp;<img src="images/bag.png" alt="" /></p>
+					<div class="total">₹
+					 <?php 
+					 	include 'carttotal.php';
+					  ?>
+					( 
+					<?php 
+					 	include 'cartno.php';
+					  ?>
+				items)</div>
+					
+				</a><br>
 				<div class="clearfix"> </div>
-			</div>	
+			</div>	<?php  
+				$user=$_SESSION['loginuser'];
+				if($user=='unknown'){
+					echo '<a style="position: absolute;margin-left: 17em;margin-top: 2em;padding:0.2em 0.7em;float: right;border:0.2em solid #ff9b05;color: black;" href="index.php"> LOG IN </a>';
+				}else{
+					echo '<a style="position: absolute;margin-left: 17em;margin-top: 1em;padding:0.2em;float: right;border:0.2em solid #ff9b05;color: black;" href="logout.php">LOG OUT</a><br><a style="position: absolute;margin-left: 15em;margin-top: 2em;padding:0.2em;float: right;color: #ff9b05;font-size:1em"> '.$user.' </a>';
+				}
+
+				?>
 			<div class="clearfix"> </div>
 		</div>
 	</div>
@@ -172,33 +189,35 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				</div> 
 				<div class="collapse navbar-collapse" id="bs-megadropdown-tabs">
 					<ul class="nav navbar-nav">
-						<li class="active"><a href="index.html">Home</a></li>	
+						<li class="active"><a href="index2.php">Home</a></li>	
 						<!-- Mega Menu -->
 						<li class="dropdown">
-							<a href="#" class="dropdown-toggle" data-toggle="dropdown">Products <b class="caret"></b></a>
+							<a href="#" class="dropdown-toggle act" data-toggle="dropdown">Products <b class="caret"></b></a>
 							<ul class="dropdown-menu multi-column columns-3">
 								<div class="row">
 									<div class="col-sm-3">
 										<ul class="multi-column-dropdown">
 											<h6>Main</h6>
-											<li><a href="GPSC.html">G.P.S.C</a></li>
-											<li><a href="High Court.html">High Court</a></li>
-											<li><a href="Panchayat.html">Panchayat</a></li>
+											<li><a href="GPSC.php">G.P.S.C</a></li>
+											<li><a href="High Court.php">High Court</a></li>
+											<li><a href="Panchayat.php">Panchayat</a></li>
 										</ul>
 									</div>
 									<div class="col-sm-3">
 										<ul class="multi-column-dropdown">
 											<h6>Others</h6>
-											<li><a href="Other.html">Other EXAM</a></li>
+											<li><a href="Other.php">Other EXAM</a></li>
 											
 										</ul>
 									</div>
+								
 								</div>
 							</ul>
 						</li>
-						<li><a href="about.html">About Us</a></li>
+						<li><a href="Quiz.php">QUIZ</a></li>
+						<li><a href="about.php">About Us</a></li>
 						
-						<li><a href="mail.html" class="act">Mail Us</a></li>
+						<li><a href="mail.php">Mail Us</a></li>
 					</ul>
 				</div>
 			</nav>
@@ -206,57 +225,191 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 	</div>
 <!-- //header -->
 <!-- banner -->
-	<div class="banner10" id="home1">
-		<div class="container">
-			<h2>Mail Us</h2>
-		</div>
+<div class="banner10" id="home1">
+	<div class="container">
+		<h2>Other</h2>
 	</div>
+</div>
 <!-- //banner -->
 
 <!-- breadcrumbs -->
 	<div class="breadcrumb_dress">
 		<div class="container">
 			<ul>
-				<li><a href="index.html"><span class="glyphicon glyphicon-home" aria-hidden="true"></span> Home</a> <i>/</i></li>
-				<li>Mail Us</li>
+				<li><a href="index2.php"><span class="glyphicon glyphicon-home" aria-hidden="true"></span> Home</a> <i>/</i></li>
+				<li>Railway And GSRTC(ST)</li>
 			</ul>
 		</div>
 	</div>
 <!-- //breadcrumbs -->
 
-<!-- mail -->
-	<div class="mail">
+<!-- dresses -->
+	<div class="dresses">
 		<div class="container">
-			<h3>Mail Us</h3>
-			<div class="agile_mail_grids">
-				<div class="col-md-5 contact-left">
-					<h4>Address</h4>
-					<p>CHARUSAT, Changa
-						<span>Anand City</span></p>
-					<ul>
-						<li>Free Phone :+91 9988776655</li>
-						<li>Telephone :+1 9988776655</li>
-						<li>Fax :+1 9988776655</li>
-						<li><a href="mailto:info@example.com">info@example.com</a></li>
-					</ul>
+			<div class="w3ls_dresses_grids">
+				<div class="col-md-4 w3ls_dresses_grid_left">
+					<div class="w3ls_dresses_grid_left_grid">
+						<h3>Categories</h3>
+						<div class="w3ls_dresses_grid_left_grid_sub">
+							<div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+							  <div class="panel panel-default">
+								<div class="panel-heading" role="tab" id="headingOne">
+								  <h4 class="panel-title asd">
+									<a class="pa_italic" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+									  <span class="glyphicon glyphicon-plus" aria-hidden="true"></span><i class="glyphicon glyphicon-minus" aria-hidden="true"></i>Other Exams
+									</a>
+								  </h4>
+								</div>
+								<div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
+								  <div class="panel-body panel_text">
+									<ul>
+										<li><a href="Other.php">Railway and GSRTC(ST)</a></li>
+										<li><a href="Other2.php">Nurse and Police</a></li>
+										<li><a href="Other3.php">Department Of Post And Talati</a></li>
+										<li><a href="Other4.php">Others</a></li>
+									</ul>
+								  </div>
+								</div>
+							  </div>
+							  
+							</div>
+						</div>
+					</div>
 				</div>
-				<div class="col-md-7 contact-left">
-					<h4>Contact Form</h4>
-					<form action="connect_mail.php" method="post"><!-- DB ADDED -->
-						<input type="text" name="Name" value="Name" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Name';}" required="">
-						<input type="email" name="Email" value="Email" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Email';}" required="">
-						<input type="text" name="Telephone" value="Telephone" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Telephone';}" required="">
-						<textarea name="message" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Message...';}" required="">Message...</textarea>
-						<input type="submit" value="Submit" >
-					</form>
+				<div class="col-md-8 w3ls_dresses_grid_right">
+					<div class="w3ls_dresses_grid_right_grid3">
+						<div class="col-md-4 agileinfo_new_products_grid agileinfo_new_products_grid_dresses">
+							<div class="agile_ecommerce_tab_left dresses_grid">
+								<div class="hs-wrapper hs-wrapper2">
+									<img src="images/22.jpg" alt=" " class="img-responsive" />
+									
+									<div class="w3_hs_bottom w3_hs_bottom_sub1">
+										<ul>
+											<li>
+												
+											</li>
+										</ul>
+									</div>
+								</div>
+								<h5>Railway</h5>
+								<div class="simpleCart_shelfItem">
+									<p><i class="item_price">₹250</i></p>
+									<p><a class="item_add" href="cart.php?data=bk0012">Add to cart</a></p>
+								</div>
+							</div>
+						</div>
+						<div class="col-md-4 agileinfo_new_products_grid agileinfo_new_products_grid_dresses">
+							<div class="agile_ecommerce_tab_left dresses_grid">
+								<div class="hs-wrapper hs-wrapper2">
+									<img src="images/23.jpg" alt=" " class="img-responsive" />
+									
+									<div class="w3_hs_bottom w3_hs_bottom_sub1">
+										<ul>
+											<li>
+												
+											</li>
+										</ul>
+									</div>
+								</div>
+								<h5>Railway</h5>
+								<div class="simpleCart_shelfItem">
+									<p><i class="item_price">₹250</i></p>
+									<p><a class="item_add" href="cart.php?data=bk0026">Add to cart</a></p>
+								</div>
+							</div>
+						</div>
+						<div class="col-md-4 agileinfo_new_products_grid agileinfo_new_products_grid_dresses">
+							<div class="agile_ecommerce_tab_left dresses_grid">
+								<div class="hs-wrapper hs-wrapper2">
+									<img src="images/24.jpg" alt=" " class="img-responsive" />
+									
+									<div class="w3_hs_bottom w3_hs_bottom_sub1">
+										<ul>
+											<li>
+												
+											</li>
+										</ul>
+									</div>
+								</div>
+								<h5>Railway</h5>
+								<div class="simpleCart_shelfItem">
+									<p><i class="item_price">₹220</i></p>
+									<p><a class="item_add" href="cart.php?data=bk0035">Add to cart</a></p>
+								</div>
+							</div>
+						</div>
+						<div class="clearfix"> </div>
+					</div>
+					<div class="w3ls_dresses_grid_right_grid3">
+						<div class="col-md-4 agileinfo_new_products_grid agileinfo_new_products_grid_dresses">
+							<div class="agile_ecommerce_tab_left dresses_grid">
+								<div class="hs-wrapper hs-wrapper2">
+									<img src="images/25.jpg" alt=" " class="img-responsive" />
+									
+									<div class="w3_hs_bottom w3_hs_bottom_sub1">
+										<ul>
+											<li>
+
+											</li>
+										</ul>
+									</div>
+								</div>
+								<h5>GSRTC(ST)</h5>
+								<div class="simpleCart_shelfItem">
+									<p><i class="item_price">₹250</i></p>
+									<p><a class="item_add" href="cart.php?data=bk0013">Add to cart</a></p>
+								</div>
+							</div>
+						</div>
+						<div class="col-md-4 agileinfo_new_products_grid agileinfo_new_products_grid_dresses">
+							<div class="agile_ecommerce_tab_left dresses_grid">
+								<div class="hs-wrapper hs-wrapper2">
+									<img src="images/26.jpg" alt=" " class="img-responsive" />
+									
+									<div class="w3_hs_bottom w3_hs_bottom_sub1">
+										<ul>
+											<li>
+												
+											</li>
+										</ul>
+									</div>
+								</div>
+								<h5>GSRTC(ST)</h5>
+								<div class="simpleCart_shelfItem">
+									<p><i class="item_price">₹250</i></p>
+									<p><a class="item_add" href="cart.php?data=bk0014">Add to cart</a></p>
+								</div>
+							</div>
+						</div>
+						<div class="col-md-4 agileinfo_new_products_grid agileinfo_new_products_grid_dresses">
+							<div class="agile_ecommerce_tab_left dresses_grid">
+								<div class="hs-wrapper hs-wrapper2">
+									<img src="images/27.jpg" alt=" " class="img-responsive" />
+									
+									<div class="w3_hs_bottom w3_hs_bottom_sub1">
+										<ul>
+											<li>
+												
+											</li>
+										</ul>
+									</div>
+								</div>
+								<h5>GSRTC(ST)</h5>
+								<div class="simpleCart_shelfItem">
+									<p><i class="item_price">₹250</i></p>
+									<p><a class="item_add" href="cart.php?data=bk0037">Add to cart</a></p>
+								</div>
+							</div>
+						</div>
+						<div class="clearfix"> </div>
+					</div>
 				</div>
 				<div class="clearfix"> </div>
 			</div>
-
-			
 		</div>
 	</div>
-<!-- //mail -->
+	
+<!-- //dresses -->
 <!-- newsletter -->
 	<div class="newsletter">
 		<div class="container">
@@ -265,7 +418,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				<p></p>
 			</div>
 			<div class="col-md-6 w3agile_newsletter_right">
-				<form action="connect_newsletter.php" method="post"><!-- DB ADDED -->
+				<form action="connect_newsletter.php" method="post">
 					<input type="email" name="Email" value="Email" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Email';}" required="">
 					<input type="submit" value="">
 				</form>
@@ -290,27 +443,27 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				<div class="col-md-3 w3_footer_grid">
 					<h3>Information</h3>
 					<ul class="info"> 
-						<li><a href="about.html">About Us</a></li>
-						<li><a href="mail.html">Contact Us</a></li>
+						<li><a href="about.php">About Us</a></li>
+						<li><a href="mail.php">Contact Us</a></li>
 						
-						<li><a href="faq.html">FAQ's</a></li>
+						<li><a href="faq.php">FAQ's</a></li>
 						
 					</ul>
 				</div>
 				<div class="col-md-3 w3_footer_grid">
 					<h3>Category</h3>
 					<ul class="info"> 
-						<li><a href="GPSC.html">G.P.S.C</a></li>
-						<li><a href="High Court.html">High Court</a></li>
-						<li><a href="Panchayat.html">Panchayat</a></li>
-						<li><a href="Other.html">Other</a></li>
+						<li><a href="GPSC.php">G.P.S.C</a></li>
+						<li><a href="High Court.php">High Court</a></li>
+						<li><a href="Panchayat.php">Panchayat</a></li>
+						<li><a href="Other.php">Other</a></li>
 					</ul>
 				</div>
 				<div class="col-md-3 w3_footer_grid">
 					<h3>Profile</h3>
 					<ul class="info"> 
 						
-						<li><a href="checkout.html">My Cart</a></li>
+						<li><a href="checkout.php">My Cart</a></li>
 					</ul>
 					<h4>Follow Us</h4>
 					<div class="agileits_social_button">

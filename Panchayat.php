@@ -1,4 +1,6 @@
-<!--
+<?php
+session_start();
+?><!--
 Author: W3layouts
 Author URL: http://w3layouts.com
 License: Creative Commons Attribution 3.0 Unported
@@ -134,7 +136,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				<a href="#" data-toggle="modal" data-target="#myModal88"><img src="images/logo.jpg" alt="Smiley face" width="100" height="100"></a>
 			</div>
 			<div class="w3l_logo">
-				<h1><a href="index.html">Bharat Publications<span>For Competitors</span></a></h1>
+				<h1><a href="index2.php">Bharat Publications<span>For Competitors</span></a></h1>
 			</div>
 			<div class="search">
 				<input class="search_box" type="checkbox" id="search_box">
@@ -147,14 +149,29 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				</div>
 			</div>
 			<div class="cart box_1">
-				<a href="checkout.html">
-					<div class="total">
-					<span class="simpleCart_total"></span> (<span id="simpleCart_quantity" class="simpleCart_quantity"></span> items)</div>
-					<img src="images/bag.png" alt="" />
-				</a>
-				<p><a href="javascript:;" class="simpleCart_empty">Empty Cart</a></p>
+				<a href="checkout.php">
+					<p style="margin-left: 3em; color: green;font-size: 1em">CART&nbsp;<img src="images/bag.png" alt="" /></p>
+					<div class="total">₹
+					 <?php 
+					 	include 'carttotal.php';
+					  ?>
+					( 
+					<?php 
+					 	include 'cartno.php';
+					  ?>
+				items)</div>
+					
+				</a><br>
 				<div class="clearfix"> </div>
-			</div>	
+			</div>	<?php  
+				$user=$_SESSION['loginuser'];
+				if($user=='unknown'){
+					echo '<a style="position: absolute;margin-left: 17em;margin-top: 2em;padding:0.2em 0.7em;float: right;border:0.2em solid #ff9b05;color: black;" href="index.php"> LOG IN </a>';
+				}else{
+					echo '<a style="position: absolute;margin-left: 17em;margin-top: 1em;padding:0.2em;float: right;border:0.2em solid #ff9b05;color: black;" href="logout.php">LOG OUT</a><br><a style="position: absolute;margin-left: 15em;margin-top: 2em;padding:0.2em;float: right;color: #ff9b05;font-size:1em"> '.$user.' </a>';
+				}
+
+				?>
 			<div class="clearfix"> </div>
 		</div>
 	</div>
@@ -172,7 +189,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				</div> 
 				<div class="collapse navbar-collapse" id="bs-megadropdown-tabs">
 					<ul class="nav navbar-nav">
-						<li class="active"><a href="index.html">Home</a></li>	
+						<li class="active"><a href="index2.php">Home</a></li>	
 						<!-- Mega Menu -->
 						<li class="dropdown">
 							<a href="#" class="dropdown-toggle act" data-toggle="dropdown">Products <b class="caret"></b></a>
@@ -181,15 +198,15 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 									<div class="col-sm-3">
 										<ul class="multi-column-dropdown">
 											<h6>Main</h6>
-											<li><a href="GPSC.html">G.P.S.C</a></li>
-											<li><a href="High Court.html">High Court</a></li>
-											<li><a href="Panchayat.html">Panchayat</a></li>
+											<li><a href="GPSC.php">G.P.S.C</a></li>
+											<li><a href="High Court.php">High Court</a></li>
+											<li><a href="Panchayat.php">Panchayat</a></li>
 										</ul>
 									</div>
 									<div class="col-sm-3">
 										<ul class="multi-column-dropdown">
 											<h6>Others</h6>
-											<li><a href="Other.html">Other EXAM</a></li>
+											<li><a href="Other.php">Other EXAM</a></li>
 											
 										</ul>
 									</div>
@@ -197,9 +214,10 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 								</div>
 							</ul>
 						</li>
-						<li><a href="about.html">About Us</a></li>
+						<li><a href="Quiz.php">QUIZ</a></li>
+						<li><a href="about.php">About Us</a></li>
 						
-						<li><a href="mail.html">Mail Us</a></li>
+						<li><a href="mail.php">Mail Us</a></li>
 					</ul>
 				</div>
 			</nav>
@@ -218,7 +236,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 	<div class="breadcrumb_dress">
 		<div class="container">
 			<ul>
-				<li><a href="index.html"><span class="glyphicon glyphicon-home" aria-hidden="true"></span> Home</a> <i>/</i></li>
+				<li><a href="index2.php"><span class="glyphicon glyphicon-home" aria-hidden="true"></span> Home</a> <i>/</i></li>
 				<li>Panchayat</li>
 			</ul>
 		</div>
@@ -251,8 +269,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 								</div>
 								<h5>Panchayat</h5>
 								<div class="simpleCart_shelfItem">
-									<p><i class="item_price">₹280</i></p>
-									<p><a class="item_add" href="checkout.html">Add to cart</a></p>
+									<p><i class="item_price">₹240</i></p>
+									<p><a class="item_add" href="cart.php?data=bk0017">Add to cart</a></p>
 								</div>
 							</div>
 						</div>
@@ -275,7 +293,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 								<h5>Panchayat</h5>
 								<div class="simpleCart_shelfItem">
 									<p><i class="item_price">₹240</i></p>
-									<p><a class="item_add" href="checkout.html">Add to cart</a></p>
+									<p><a class="item_add" href="cart.php?data=bk0008">Add to cart</a></p>
 								</div>
 							</div>
 						</div>
@@ -295,8 +313,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 								</div>
 								<h5>Panchayat</h5>
 								<div class="simpleCart_shelfItem">
-									<p><i class="item_price">₹240</i></p>
-									<p><a class="item_add" href="checkout.html">Add to cart</a></p>
+									<p><i class="item_price">₹350</i></p>
+									<p><a class="item_add" href="cart.php?data=bk0034">Add to cart</a></p>
 								</div>
 							</div>
 						</div>
@@ -318,8 +336,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 								</div>
 								<h5>Panchayat</h5>
 								<div class="simpleCart_shelfItem">
-									<p><i class="item_price">₹240</i></p>
-									<p><a class="item_add" href="checkout.html">Add to cart</a></p>
+									<p><i class="item_price">₹280</i></p>
+									<p><a class="item_add" href="cart.php?data=bk0005">Add to cart</a></p>
 								</div>
 							</div>
 						</div>
@@ -339,7 +357,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 								<h5>Panchayat</h5>
 								<div class="simpleCart_shelfItem">
 									<p><i class="item_price">₹240</i></p>
-									<p><a class="item_add" href="checkout.html">Add to cart</a></p>
+									<p><a class="item_add" href="cart.php?data=bk0006">Add to cart</a></p>
 								</div>
 							</div>
 						</div>
@@ -358,8 +376,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 								</div>
 								<h5>Panchayat</h5>
 								<div class="simpleCart_shelfItem">
-									<p><i class="item_price">₹350</i></p>
-									<p><a class="item_add" href="checkout.html">Add to cart</a></p>
+									<p><i class="item_price">₹240</i></p>
+									<p><a class="item_add" href="cart.php?data=bk0007">Add to cart</a></p>
 								</div>
 							</div>
 						</div>
@@ -378,7 +396,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				<p></p>
 			</div>
 			<div class="col-md-6 w3agile_newsletter_right">
-				<form action="#" method="post">
+				<form action="connect_newsletter.php" method="post">
 					<input type="email" name="Email" value="Email" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Email';}" required="">
 					<input type="submit" value="">
 				</form>
@@ -403,27 +421,27 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				<div class="col-md-3 w3_footer_grid">
 					<h3>Information</h3>
 					<ul class="info"> 
-						<li><a href="about.html">About Us</a></li>
-						<li><a href="mail.html">Contact Us</a></li>
+						<li><a href="about.php">About Us</a></li>
+						<li><a href="mail.php">Contact Us</a></li>
 						
-						<li><a href="faq.html">FAQ's</a></li>
+						<li><a href="faq.php">FAQ's</a></li>
 						
 					</ul>
 				</div>
 				<div class="col-md-3 w3_footer_grid">
 					<h3>Category</h3>
 					<ul class="info"> 
-						<li><a href="GPSC.html">G.P.S.C</a></li>
-						<li><a href="High Court.html">High Court</a></li>
-						<li><a href="Panchayat.html">Panchayat</a></li>
-						<li><a href="Other.html">Other</a></li>
+						<li><a href="GPSC.php">G.P.S.C</a></li>
+						<li><a href="High Court.php">High Court</a></li>
+						<li><a href="Panchayat.php">Panchayat</a></li>
+						<li><a href="Other.php">Other</a></li>
 					</ul>
 				</div>
 				<div class="col-md-3 w3_footer_grid">
 					<h3>Profile</h3>
 					<ul class="info"> 
 						
-						<li><a href="checkout.html">My Cart</a></li>
+						<li><a href="checkout.php">My Cart</a></li>
 					</ul>
 					<h4>Follow Us</h4>
 					<div class="agileits_social_button">

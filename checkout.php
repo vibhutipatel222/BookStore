@@ -1,6 +1,7 @@
 <?php
 session_start();
-?><!--
+?>
+<!--
 Author: W3layouts
 Author URL: http://w3layouts.com
 License: Creative Commons Attribution 3.0 Unported
@@ -9,7 +10,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 <!DOCTYPE html>
 <html>
 <head>
-<title>Online Book Shop | Mail Us</title>
+<title>Online Book Shop | Checkout</title>
 <!-- for-mobile-apps -->
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
@@ -171,7 +172,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 					echo '<a style="position: absolute;margin-left: 17em;margin-top: 1em;padding:0.2em;float: right;border:0.2em solid #ff9b05;color: black;" href="logout.php">LOG OUT</a><br><a style="position: absolute;margin-left: 15em;margin-top: 2em;padding:0.2em;float: right;color: #ff9b05;font-size:1em"> '.$user.' </a>';
 				}
 
-				?>	
+				?>
 			<div class="clearfix"> </div>
 		</div>
 	</div>
@@ -216,7 +217,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 						<li><a href="Quiz.php">QUIZ</a></li>
 						<li><a href="about.php">About Us</a></li>
 						
-						<li><a href="mail.php" class="act">Mail Us</a></li>
+						<li><a href="mail.php">Mail Us</a></li>
 					</ul>
 				</div>
 			</nav>
@@ -226,7 +227,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <!-- banner -->
 	<div class="banner10" id="home1">
 		<div class="container">
-			<h2>Mail Us</h2>
+			<h2>Checkout</h2>
 		</div>
 	</div>
 <!-- //banner -->
@@ -235,46 +236,338 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 	<div class="breadcrumb_dress">
 		<div class="container">
 			<ul>
-				<li><a href="index.php"><span class="glyphicon glyphicon-home" aria-hidden="true"></span> Home</a> <i>/</i></li>
-				<li>Mail Us</li>
+				<li><a href="index2.php"><span class="glyphicon glyphicon-home" aria-hidden="true"></span> Home</a> <i>/</i></li>
+				<li>Checkout</li>
 			</ul>
 		</div>
 	</div>
 <!-- //breadcrumbs -->
 
-<!-- mail -->
-	<div class="mail">
+<!-- checkout -->
+	<div class="checkout">
 		<div class="container">
-			<h3>Mail Us</h3>
-			<div class="agile_mail_grids">
-				<div class="col-md-5 contact-left">
-					<h4>Address</h4>
-					<p>CHARUSAT, Changa
-						<span>Anand City</span></p>
+			<h3>Your shopping cart contains: <span><?php 
+
+				$conn = new mysqli('localhost','root','','project');
+					if($conn->connect_error)
+						{
+							echo 'Failed to connect';
+						}
+					else
+						{
+							$email=$_SESSION['loginuser'];
+							//$sql="SELECT * from cart";
+							$sql= "SELECT book_title,category,price FROM cart,books WHERE product_id=book_id AND user_id='$email'";
+							$result = $conn->query($sql);
+							$count=0;
+							if ($result->num_rows > 0) {
+							  echo $result->num_rows;
+							 
+							} else {
+							  echo " 0 ";
+							}
+
+							$conn->close();
+						}
+			;?> Products</span></h3>
+
+			<div class="checkout-right">
+				<table class="timetable_sub">
+					<thead>
+						<tr>
+							<th>SL No.</th>	
+							<th>Product</th>
+							<th>Quantity</th>
+							<th>Product Name</th>
+							<th>Service Charges</th>
+							<th>Price</th>
+							<th>Remove</th>
+						</tr>
+					</thead>
+					<?php 
+
+					$conn = new mysqli('localhost','root','','project');
+					if($conn->connect_error)
+						{
+							echo 'Failed to connect';
+						}
+					else
+						{
+							$email=$_SESSION['loginuser'];
+							//$sql="SELECT * from cart";
+							$sql= "SELECT book_title,category,price,quantity,product_id FROM cart,books WHERE product_id=book_id AND user_id='$email'";
+							$result = $conn->query($sql);
+							$count=0;
+							if ($result->num_rows > 0) {
+							  // output data of each row
+							  while($row = $result->fetch_assoc()) {
+							    $count++;
+							    
+
+							    		echo '<tr class="rem1">';
+										echo'<td class="invert" style="padding: 25px">'.$count.'</td>';
+										echo '<td class="invert">'.$row["book_title"].'</td>';
+										echo '<td class="invert">1</td>';
+											
+										echo '<td class="invert">'.$row["category"].'</td>';
+										echo '<td class="invert">₹50</td>';
+										echo '<td class="invert">'.$row["price"].'</td>';
+										echo '<td class="invert">';
+											echo '<div>';
+												echo '<a style="font-size:2em; border-radius:50%;border: 0.1em solid black;color:black;padding:0 0.4em;" href="cartitems.php?data='.$row["product_id"].'">x</a>';
+											echo '<div>';
+											echo '';
+										echo '</td>';
+									echo '</tr>';
+
+
+
+
+							  }
+							} else {
+							  echo "0 items";
+							}
+
+							$conn->close();
+						}
+
+					
+
+
+					?>
+					
+					<!-- <tr class="rem2">
+						<td class="invert">2</td>
+						<td class="invert-image"><img src="images/8.jpg" alt=" " class="img-responsive" height="120px" width="120px"/></td>
+						<td class="invert">
+							 <div class="quantity"> 
+								<div class="quantity-select">                           
+									<div class="entry value-minus">&nbsp;</div>
+									<div class="entry value"><span>1</span></div>
+									<div class="entry value-plus active">&nbsp;</div>
+								</div>
+							</div>
+						</td>
+						<td class="invert">Railway</td>
+						<td class="invert">₹50</td>
+						<td class="invert">₹250.00</td>
+						<td class="invert">
+							<div class="rem">
+								<div class="close2"> </div>
+							</div>
+							<script>$(document).ready(function(c) {
+								$('.close2').on('click', function(c){
+									$('.rem2').fadeOut('slow', function(c){
+										$('.rem2').remove();
+									});
+									});	  
+								});
+						   </script>
+						</td>
+					</tr> -->
+					
+								<!--quantity-->
+									<script>
+									$('.value-plus').on('click', function(){
+
+									// <?php 
+									// $conn = new mysqli('localhost','root','','project');
+									// if($conn->connect_error)
+									// 	{
+									// 		echo 'Failed to connect';
+									// 	}
+									// else
+									// 	{
+									// 	$email=$_SESSION['loginuser'];
+									// 	$sql= "UPDATE cart SET quantity=newVal WHERE user_id='$email' AND product_id=''";
+									// 	$conn->query($sql)
+									// ?>
+										
+										var divUpd = $(this).parent().find('.value'), newVal = parseInt(divUpd.text(), 10)+1;
+										divUpd.text(newVal);
+									});
+
+									$('.value-minus').on('click', function(){
+										var divUpd = $(this).parent().find('.value'), newVal = parseInt(divUpd.text(), 10)-1;
+										if(newVal>=1) divUpd.text(newVal);
+									});
+									</script>
+								<!--quantity-->
+				</table>
+			</div>
+			<br>
+			<div class="checkout-left">	
+				<div class="checkout-left-basket" style="width: 40%;">
+					<h4>Continue to basket</h4>
 					<ul>
-						<li>Free Phone :+91 9988776655</li>
-						<li>Telephone :+1 9988776655</li>
-						<li>Fax :+1 9988776655</li>
-						<li><a href="mailto:info@example.com">info@example.com</a></li>
+				<?php 
+
+					$conn = new mysqli('localhost','root','','project');
+					if($conn->connect_error)
+						{
+							echo 'Failed to connect';
+						}
+					else
+						{
+							$email=$_SESSION['loginuser'];
+							//$sql="SELECT * from cart";
+							$sql= "SELECT book_title,price FROM cart,books WHERE product_id=book_id AND user_id='$email'";
+							$result = $conn->query($sql);
+							$count=0;$amount=0;
+							if ($result->num_rows > 0) {
+							  // output data of each row
+							  while($row = $result->fetch_assoc()) {
+							    $count++;
+							    	$amount+=$row["price"];
+									echo '<li style="font-weight:400; font-size:0.9em; color:#696969; border:none;padding:0.3em;margin:1em 0;">'.$row["book_title"].'<i> - </i> <span>'.$row["price"].' </span></li>';
+									
+							  }
+
+							  $charge=$count*50;
+
+							 echo '<li style="font-weight:600; font-size:0.9em; color:#303030; border:none;padding:0.3em;margin:1em 0;">Total Service Charges <i>-</i> <span>'.$charge.'</span></li>';
+							 $charge+=$amount;
+							 echo '<li style="font-weight:900; font-size:0.9em; color:#000000; border-top:2px solid black;border-bottom:2px solid black;padding:1em 0.3em;margin:0.5em 0;">Total <i>-</i> <span>'.$charge.'</span></li>';
+
+							} else {
+							  echo "0 items";
+							}
+
+							$conn->close();
+						}
+
+					
+
+
+					?>
+
+						
 					</ul>
 				</div>
-				<div class="col-md-7 contact-left">
-					<h4>Contact Form</h4>
-					<form action="connect_mail.php" method="post"><!-- DB ADDED -->
-						<input type="text" name="Name" value="Name" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Name';}" required="">
-						<input type="email" name="Email" value="Email" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Email';}" required="">
-						<input type="text" name="Telephone" value="Telephone" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Telephone';}" required="">
-						<textarea name="message" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Message...';}" required="">Message...</textarea>
-						<input type="submit" value="Submit" >
-					</form>
+				<div class="checkout-right-basket">
+					<a href="Other.php"><span class="glyphicon glyphicon-menu-left" aria-hidden="true"></span>Continue Shopping</a>
 				</div>
 				<div class="clearfix"> </div>
 			</div>
-
-			
 		</div>
 	</div>
-<!-- //mail -->
+	<div class="w3l_related_products">
+		<div class="container">
+			<h3>Related Products</h3>
+			<ul id="flexiselDemo2">			
+				<li>
+					<div class="w3l_related_products_grid">
+						<div class="agile_ecommerce_tab_left dresses_grid">
+							<div class="hs-wrapper hs-wrapper3">
+								<img src="images/39.jpg" alt=" " class="img-responsive">
+								
+								<div class="w3_hs_bottom">
+									<div class="flex_ecommerce">
+										
+									</div>
+								</div>
+							</div>
+							<h5>TET</h5>
+							<div class="simpleCart_shelfItem">
+								<p class="flexisel_ecommerce_cart"><i class="item_price">₹350</i></p>
+								<p><a class="item_add" href="cart.php?data=bk0023">Add to cart</a></p>
+							</div>
+						</div>
+					</div>
+				</li>
+				<li>
+					<div class="w3l_related_products_grid">
+						<div class="agile_ecommerce_tab_left dresses_grid">
+							<div class="hs-wrapper hs-wrapper3">
+								<img src="images/42.jpg" alt=" " class="img-responsive">
+								
+								<div class="w3_hs_bottom">
+									<div class="flex_ecommerce">
+										
+									</div>
+								</div>
+							</div>
+							<h5>Bank</h5>
+							<div class="simpleCart_shelfItem">
+								<p class="flexisel_ecommerce_cart"><i class="item_price">₹220</i></p>
+								<p><a class="item_add" href="cart.php?data=bk0033">Add to cart</a></p>
+							</div>
+						</div>
+					</div>
+				</li>
+				<li>
+					<div class="w3l_related_products_grid">
+						<div class="agile_ecommerce_tab_left dresses_grid">
+							<div class="hs-wrapper hs-wrapper3">
+								<img src="images/35.jpg" alt=" " class="img-responsive">
+								
+								<div class="w3_hs_bottom">
+									<div class="flex_ecommerce">
+										
+									</div>
+								</div>
+							</div>
+							<h5>Police</h5>
+							<div class="simpleCart_shelfItem">
+								<p class="flexisel_ecommerce_cart"><i class="item_price">₹460</i></p>
+								<p><a class="item_add" href="cart.php?data=bk0019">Add to cart</a></p>
+							</div>
+						</div>
+					</div>
+				</li>
+				<li>
+					<div class="w3l_related_products_grid">
+						<div class="agile_ecommerce_tab_left dresses_grid">
+							<div class="hs-wrapper hs-wrapper3">
+								<img src="images/32.jpg" alt=" " class="img-responsive">
+								
+								<div class="w3_hs_bottom">
+									<div class="flex_ecommerce">
+										
+									</div>
+								</div>
+							</div>
+							<h5>Nurse</h5>
+							<div class="simpleCart_shelfItem">
+								<p class="flexisel_ecommerce_cart"><i class="item_price">₹350</i></p>
+								<p><a class="item_add" href="cart.php?data=bk0031">Add to cart</a></p>
+							</div>
+						</div>
+					</div>
+				</li>
+			</ul>
+				<script type="text/javascript">
+					$(window).load(function() {
+						$("#flexiselDemo2").flexisel({
+							visibleItems:4,
+							animationSpeed: 1000,
+							autoPlay: true,
+							autoPlaySpeed: 3000,    		
+							pauseOnHover: true,
+							enableResponsiveBreakpoints: true,
+							responsiveBreakpoints: { 
+								portrait: { 
+									changePoint:480,
+									visibleItems: 1
+								}, 
+								landscape: { 
+									changePoint:640,
+									visibleItems:2
+								},
+								tablet: { 
+									changePoint:768,
+									visibleItems: 3
+								}
+							}
+						});
+						
+					});
+				</script>
+				<script type="text/javascript" src="js/jquery.flexisel.js"></script>
+		</div>
+	</div>
+
+<!-- //checkout -->
 <!-- newsletter -->
 	<div class="newsletter">
 		<div class="container">
@@ -283,7 +576,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				<p></p>
 			</div>
 			<div class="col-md-6 w3agile_newsletter_right">
-				<form action="connect_newsletter.php" method="post"><!-- DB ADDED -->
+				<form action="connect_newsletter.php" method="post">
 					<input type="email" name="Email" value="Email" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Email';}" required="">
 					<input type="submit" value="">
 				</form>
@@ -311,6 +604,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 						<li><a href="about.php">About Us</a></li>
 						<li><a href="mail.php">Contact Us</a></li>
 						
+
 						<li><a href="faq.php">FAQ's</a></li>
 						
 					</ul>

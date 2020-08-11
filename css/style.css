@@ -2524,8 +2524,8 @@ table.timetable_sub {
 }
 .timetable_sub th, .timetable_sub td {
     text-align: center;
-    padding: 7px;
-    font-size: 14px;
+    padding: 27px;
+    font-size: 24px;
     color: #212121;
 }
 .timetable_sub td {
@@ -2537,6 +2537,10 @@ td.invert-image a img {
 }
 .rem{
 	position:relative;
+}
+.timetable_sub td.invert{
+    padding: 27px;
+
 }
 .close1,.close2,.close3 {
     background: url('../images/close.png') no-repeat 0px 0px;
@@ -2580,7 +2584,7 @@ td.invert-image a img {
 .checkout-left-basket ul li span {
     float: right;
 }
-.checkout-left-basket ul li:nth-child(5) {
+.checkout-left-basket ul li:last-child {
     font-size: 1em;
     color: #212121;
     font-weight: 600;

@@ -1,3 +1,6 @@
+<?php
+session_start();
+?>
 <!--
 Author: W3layouts
 Author URL: http://w3layouts.com
@@ -7,7 +10,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 <!DOCTYPE html>
 <html>
 <head>
-<title>Online Book Shop | FAQ's</title>
+<title>Online Book Shop | G.P.S.C</title>
 <!-- for-mobile-apps -->
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
@@ -134,7 +137,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				<a href="#" data-toggle="modal" data-target="#myModal88"><img src="images/logo.jpg" alt="Smiley face" width="100" height="100"></a>
 			</div>
 			<div class="w3l_logo">
-				<h1><a href="index.html">Bharat Publications<span>For Competitors</span></a></h1>
+				<h1><a href="index2.php">Bharat Publications<span>For Competitors</span></a></h1>
 			</div>
 			<div class="search">
 				<input class="search_box" type="checkbox" id="search_box">
@@ -147,14 +150,29 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				</div>
 			</div>
 			<div class="cart box_1">
-				<a href="checkout.html">
-					<div class="total">
-					<span class="simpleCart_total"></span> (<span id="simpleCart_quantity" class="simpleCart_quantity"></span> items)</div>
-					<img src="images/bag.png" alt="" />
-				</a>
-				<p><a href="javascript:;" class="simpleCart_empty">Empty Cart</a></p>
+				<a href="checkout.php">
+					<p style="margin-left: 3em; color: green;font-size: 1em">CART&nbsp;<img src="images/bag.png" alt="" /></p>
+					<div class="total">₹
+					 <?php 
+					 	include 'carttotal.php';
+					  ?>
+					( 
+					<?php 
+					 	include 'cartno.php';
+					  ?>
+				items)</div>
+					
+				</a><br>
 				<div class="clearfix"> </div>
-			</div>	
+			</div>	<?php  
+				$user=$_SESSION['loginuser'];
+				if($user=='unknown'){
+					echo '<a style="position: absolute;margin-left: 17em;margin-top: 2em;padding:0.2em 0.7em;float: right;border:0.2em solid #ff9b05;color: black;" href="index.php"> LOG IN </a>';
+				}else{
+					echo '<a style="position: absolute;margin-left: 17em;margin-top: 1em;padding:0.2em;float: right;border:0.2em solid #ff9b05;color: black;" href="logout.php">LOG OUT</a><br><a style="position: absolute;margin-left: 15em;margin-top: 2em;padding:0.2em;float: right;color: #ff9b05;font-size:1em"> '.$user.' </a>';
+				}
+
+				?>
 			<div class="clearfix"> </div>
 		</div>
 	</div>
@@ -172,33 +190,35 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				</div> 
 				<div class="collapse navbar-collapse" id="bs-megadropdown-tabs">
 					<ul class="nav navbar-nav">
-						<li class="active"><a href="index.html">Home</a></li>	
+						<li class="active"><a href="index2.php">Home</a></li>	
 						<!-- Mega Menu -->
 						<li class="dropdown">
-							<a href="#" class="dropdown-toggle" data-toggle="dropdown">Products <b class="caret"></b></a>
+							<a href="#" class="dropdown-toggle act" data-toggle="dropdown">Products <b class="caret"></b></a>
 							<ul class="dropdown-menu multi-column columns-3">
 								<div class="row">
 									<div class="col-sm-3">
 										<ul class="multi-column-dropdown">
 											<h6>Main</h6>
-											<li><a href="GPSC.html">G.P.S.C</a></li>
-											<li><a href="High Court.html">High Court</a></li>
-											<li><a href="Panchayat.html">Panchayat</a></li>
+											<li><a href="GPSC.php">G.P.S.C</a></li>
+											<li><a href="High Court.php">High Court</a></li>
+											<li><a href="Panchayat.php">Panchayat</a></li>
 										</ul>
 									</div>
 									<div class="col-sm-3">
 										<ul class="multi-column-dropdown">
 											<h6>Others</h6>
-											<li><a href="Other.html">Other EXAM</a></li>
+											<li><a href="Other.php">Other EXAM</a></li>
 											
 										</ul>
 									</div>
+								
 								</div>
 							</ul>
 						</li>
-						<li><a href="about.html">About Us</a></li>
+						<li><a href="Quiz.php">QUIZ</a></li>
+						<li><a href="about.php">About Us</a></li>
 						
-						<li><a href="mail.html">Mail Us</a></li>
+						<li><a href="mail.php">Mail Us</a></li>
 					</ul>
 				</div>
 			</nav>
@@ -206,132 +226,169 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 	</div>
 <!-- //header -->
 <!-- banner -->
-	<div class="banner10" id="home1">
-		<div class="container">
-			<h2>FAQ's</h2>
-		</div>
+<div class="banner10" id="home1">
+	<div class="container">
+		<h2>G.P.S.C</h2>
 	</div>
+</div>
 <!-- //banner -->
 
 <!-- breadcrumbs -->
 	<div class="breadcrumb_dress">
 		<div class="container">
 			<ul>
-				<li><a href="index.html"><span class="glyphicon glyphicon-home" aria-hidden="true"></span> Home</a> <i>/</i></li>
-				<li>FAQ's</li>
+				<li><a href="index2.php"><span class="glyphicon glyphicon-home" aria-hidden="true"></span> Home</a> <i>/</i></li>
+				<li>G.P.S.C</li>
 			</ul>
 		</div>
 	</div>
 <!-- //breadcrumbs -->
 
-<!-- faq -->
-	<div class="faq">
-		<div class="container">	
-			<div class="w3l_faq_grids">
-				<div class="w3l_faq_grid">
-					<h3>1. Excepteur sint occaecat cupidatat non proident ?</h3>
-					<p><b>Ans.</b> But I must explain to you how all this mistaken idea of 
-						denouncing pleasure and praising pain was born and I will give 
-						you a complete account of the system, and expound the actual 
-						teachings of the great explorer of the truth, the master-builder 
-						of human happiness. No one rejects, dislikes, or avoids pleasure 
-						itself, because it is pleasure.</p>
-				</div>
+<!-- dresses -->
+	<div class="dresses">
+		<div class="container">
+			<div class="w3ls_dresses_grids">
+				
+				<div class="col-md-8 w3ls_dresses_grid_right">
+					
+					<div class="clearfix"> </div>
 
-				<div class="w3l_faq_grid">
-					<h3>2. Quis nostrum exercitationem ullam corporis suscipit ?</h3>
-					<p><b>Ans.</b> But I must explain to you how all this mistaken idea of 
-						denouncing pleasure and praising pain was born and I will give 
-						you a complete account of the system, and expound the actual 
-						teachings of the great explorer of the truth, the master-builder 
-						of human happiness. No one rejects, dislikes, or avoids pleasure 
-						itself, because it is pleasure.</p>
-				</div>
-				<div class="w3l_faq_grid">
-					<h3>3. Nemo enim ipsam voluptatem quia voluptas sit ?</h3>
-					<p><b>Ans.</b> But I must explain to you how all this mistaken idea of 
-						denouncing pleasure and praising pain was born and I will give 
-						you a complete account of the system, and expound the actual 
-						teachings of the great explorer of the truth, the master-builder 
-						of human happiness. No one rejects, dislikes, or avoids pleasure 
-						itself, because it is pleasure.</p>
-				</div>
-				<div class="w3l_faq_grid">
-					<h3>4. Ut enim ad minima veniam, quis nostrum exercitationem ?</h3>
-					<p><b>Ans.</b> But I must explain to you how all this mistaken idea of 
-						denouncing pleasure and praising pain was born and I will give 
-						you a complete account of the system, and expound the actual 
-						teachings of the great explorer of the truth, the master-builder 
-						of human happiness. No one rejects, dislikes, or avoids pleasure 
-						itself, because it is pleasure.</p>
-				</div>
-				<div class="w3l_faq_grid">
-					<h3>5. Quis autem vel eum iure reprehenderit qui ?</h3>
-					<p><b>Ans.</b> But I must explain to you how all this mistaken idea of 
-						denouncing pleasure and praising pain was born and I will give 
-						you a complete account of the system, and expound the actual 
-						teachings of the great explorer of the truth, the master-builder 
-						of human happiness. No one rejects, dislikes, or avoids pleasure 
-						itself, because it is pleasure.</p>
-				</div>
-				<div class="w3l_faq_grid">
-					<h3>6. Sed ut perspiciatis unde omnis iste natus error sit ?</h3>
-					<p><b>Ans.</b> But I must explain to you how all this mistaken idea of 
-						denouncing pleasure and praising pain was born and I will give 
-						you a complete account of the system, and expound the actual 
-						teachings of the great explorer of the truth, the master-builder 
-						of human happiness. No one rejects, dislikes, or avoids pleasure 
-						itself, because it is pleasure.</p>
-				</div>
-				<div class="w3l_faq_grid">
-					<h3>7. Nam libero tempore, cum soluta nobis est ?</h3>
-					<p><b>Ans.</b> But I must explain to you how all this mistaken idea of 
-						denouncing pleasure and praising pain was born and I will give 
-						you a complete account of the system, and expound the actual 
-						teachings of the great explorer of the truth, the master-builder 
-						of human happiness. No one rejects, dislikes, or avoids pleasure 
-						itself, because it is pleasure.</p>
-				</div>
-				<div class="w3l_faq_grid">
-					<h3>8. At vero eos et accusamus et iusto odio dignissimos ?</h3>
-					<p><b>Ans.</b> But I must explain to you how all this mistaken idea of 
-						denouncing pleasure and praising pain was born and I will give 
-						you a complete account of the system, and expound the actual 
-						teachings of the great explorer of the truth, the master-builder 
-						of human happiness. No one rejects, dislikes, or avoids pleasure 
-						itself, because it is pleasure.</p>
-				</div>
-				<div class="w3l_faq_grid">
-					<h3>9. Itaque earum rerum hic tenetur a sapiente delectus ?</h3>
-					<p><b>Ans.</b> But I must explain to you how all this mistaken idea of 
-						denouncing pleasure and praising pain was born and I will give 
-						you a complete account of the system, and expound the actual 
-						teachings of the great explorer of the truth, the master-builder 
-						of human happiness. No one rejects, dislikes, or avoids pleasure 
-						itself, because it is pleasure.</p>
-				</div>
-				<div class="w3l_faq_grid">
-					<h3>10. vel illum qui dolorem eum fugiat quo voluptas nulla ?</h3>
-					<p><b>Ans.</b> But I must explain to you how all this mistaken idea of 
-						denouncing pleasure and praising pain was born and I will give 
-						you a complete account of the system, and expound the actual 
-						teachings of the great explorer of the truth, the master-builder 
-						of human happiness. No one rejects, dislikes, or avoids pleasure 
-						itself, because it is pleasure.</p>
-				</div>
-				<div class="w3l_faq_grid">
-					<h3>11. Ut enim ad minima veniam, quis nostrum exercitationem ?</h3>
-					<p><b>Ans.</b> But I must explain to you how all this mistaken idea of 
-						denouncing pleasure and praising pain was born and I will give 
-						you a complete account of the system, and expound the actual 
-						teachings of the great explorer of the truth, the master-builder 
-						of human happiness. No one rejects, dislikes, or avoids pleasure 
-						itself, because it is pleasure.</p>
-				</div>
+					<div class="w3ls_dresses_grid_right_grid3">
+						<div class="col-md-4 agileinfo_new_products_grid agileinfo_new_products_grid_dresses">
+							<div class="agile_ecommerce_tab_left dresses_grid">
+								<div class="hs-wrapper hs-wrapper2">
+									
+									<img src="images/3.jpg" alt=" " class="img-responsive" />
+									
+									<div class="w3_hs_bottom w3_hs_bottom_sub1">
+										<ul>
+											<li>
+												
+											</li>
+										</ul>
+									</div>
+								</div>
+								<h5>G.P.S.C</h5>
+								<div class="simpleCart_shelfItem">
+									<p><i class="item_price">₹600</i></p>
+									<p><a class="item_add" href="cart.php?data=bk0001">Add to cart</a></p>
+								</div>
+							</div>
+						</div>
+						
+						<div class="col-md-4 agileinfo_new_products_grid agileinfo_new_products_grid_dresses">
+							<div class="agile_ecommerce_tab_left dresses_grid">
+								<div class="hs-wrapper hs-wrapper2">
+									
+									
+									<img src="images/4.jpg" alt=" " class="img-responsive" />
+									
+									<div class="w3_hs_bottom w3_hs_bottom_sub1">
+										<ul>
+											<li>
+												
+											</li>
+										</ul>
+									</div>
+								</div>
+								<h5>G.P.S.C</h5>
+								<div class="simpleCart_shelfItem">
+									<p><i class="item_price">₹350</i></p>
+									<p><a class="item_add" href="cart.php?data=bk0027">Add to cart</a></p>
+								</div>
+							</div>
+						</div>
+						<div class="col-md-4 agileinfo_new_products_grid agileinfo_new_products_grid_dresses">
+							<div class="agile_ecommerce_tab_left dresses_grid">
+								<div class="hs-wrapper hs-wrapper2">
+									
+									<img src="images/5.jpg" alt=" " class="img-responsive" />
+									
+									<div class="w3_hs_bottom w3_hs_bottom_sub1">
+										<ul>
+											<li>
+												
+											</li>
+										</ul>
+									</div>
+								</div>
+								<h5>G.P.S.C</h5>
+								<div class="simpleCart_shelfItem">
+									<p><i class="item_price">₹300</i></p>
+									<p><a class="item_add" href="cart.php?data=bk0028">Add to cart</a></p>
+								</div>
+							</div>
+						</div>
+						<div class="clearfix"> </div>
+					</div>
+					<div class="w3ls_dresses_grid_right_grid3">
+						<div class="col-md-4 agileinfo_new_products_grid agileinfo_new_products_grid_dresses">
+							<div class="agile_ecommerce_tab_left dresses_grid">
+								<div class="hs-wrapper hs-wrapper2">
+									<img src="images/6.jpg" alt=" " class="img-responsive" />
+									
+									<div class="w3_hs_bottom w3_hs_bottom_sub1">
+										<ul>
+											<li>
+												
+											</li>
+										</ul>
+									</div>
+								</div>
+								<h5>G.P.S.C</h5>
+								<div class="simpleCart_shelfItem">
+									<p><i class="item_price">₹500</i></p>
+									<p><a class="item_add" href="cart.php?data=bk0025">Add to cart</a></p>
+								</div>
+							</div>
+						</div>
+						<div class="col-md-4 agileinfo_new_products_grid agileinfo_new_products_grid_dresses">
+							<div class="agile_ecommerce_tab_left dresses_grid">
+								<div class="hs-wrapper hs-wrapper2">
+									<img src="images/7.jpg" alt=" " class="img-responsive" />
+									
+									<div class="w3_hs_bottom w3_hs_bottom_sub1">
+										<ul>
+											<li>
+												
+											</li>
+										</ul>
+									</div>
+								</div>
+								<h5>G.P.S.C</h5>
+								<div class="simpleCart_shelfItem">
+									<p><i class="item_price">₹250</i></p>
+									<p><a class="item_add" href="cart.php?data=bk0002">Add to cart</a></p>
+								</div>
+							</div>
+						</div>
+						<div class="col-md-4 agileinfo_new_products_grid agileinfo_new_products_grid_dresses">
+							<div class="agile_ecommerce_tab_left dresses_grid">
+								<div class="hs-wrapper hs-wrapper2">
+									<img src="images/8.jpg" alt=" " class="img-responsive" />
+									
+									<div class="w3_hs_bottom w3_hs_bottom_sub1">
+										<ul>
+											<li>
+												
+											</li>
+										</ul>
+									</div>
+								</div>
+								<h5>G.P.S.C</h5>
+								<div class="simpleCart_shelfItem">
+									<p><i class="item_price">₹250</i></p>
+									<p><a class="item_add" href="cart.php?data=bk0003">Add to cart</a></p>
+								</div>
+							</div>
+						</div>
+						<div class="clearfix"> </div>
+					</div>
+					</div>
 			</div>
 		</div>
 	</div>
-<!-- //faq -->
+<!-- //dresses -->
 <!-- newsletter -->
 	<div class="newsletter">
 		<div class="container">
@@ -340,7 +397,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				<p></p>
 			</div>
 			<div class="col-md-6 w3agile_newsletter_right">
-				<form action="#" method="post">
+				<form action="connect_newsletter.php" method="post">
 					<input type="email" name="Email" value="Email" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Email';}" required="">
 					<input type="submit" value="">
 				</form>
@@ -365,27 +422,27 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				<div class="col-md-3 w3_footer_grid">
 					<h3>Information</h3>
 					<ul class="info"> 
-						<li><a href="about.html">About Us</a></li>
-						<li><a href="mail.html">Contact Us</a></li>
+						<li><a href="about.php">About Us</a></li>
+						<li><a href="mail.php">Contact Us</a></li>
 						
-						<li><a href="faq.html">FAQ's</a></li>
+						<li><a href="faq.php">FAQ's</a></li>
 						
 					</ul>
 				</div>
 				<div class="col-md-3 w3_footer_grid">
 					<h3>Category</h3>
 					<ul class="info"> 
-						<li><a href="GPSC.html">G.P.S.C</a></li>
-						<li><a href="High Court.html">High Court</a></li>
-						<li><a href="Panchayat.html">Panchayat</a></li>
-						<li><a href="Other.html">Other</a></li>
+						<li><a href="GPSC.php">G.P.S.C</a></li>
+						<li><a href="High Court.php">High Court</a></li>
+						<li><a href="Panchayat.php">Panchayat</a></li>
+						<li><a href="Other.php">Other</a></li>
 					</ul>
 				</div>
 				<div class="col-md-3 w3_footer_grid">
 					<h3>Profile</h3>
 					<ul class="info"> 
 						
-						<li><a href="checkout.html">My Cart</a></li>
+						<li><a href="checkout.php">My Cart</a></li>
 					</ul>
 					<h4>Follow Us</h4>
 					<div class="agileits_social_button">
